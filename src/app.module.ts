@@ -11,8 +11,8 @@ import { UserSchema } from './login/schema/user.schema';
 
 @Module({
   imports: [MoviesModule,
-    MongooseModule.forRoot('mongodb://0.0.0.0:27017', { dbName: 'moviesdb' }),
-    // MongooseModule.forRoot('mongodb+srv://codecraftwtatlas:codecraftwtatlas@new-web.8osw8.mongodb.net/new_backend_web?retryWrites=true&w=majority&appName=new-web', { dbName: 'moviesdb' }),
+    // MongooseModule.forRoot('mongodb://0.0.0.0:27017', { dbName: 'moviesdb' }),
+    MongooseModule.forRoot('mongodb+srv://codecraftwtatlas:codecraftwtatlas@new-web.8osw8.mongodb.net/new_backend_web?retryWrites=true&w=majority&appName=new-web', { dbName: 'moviesdb' }),
     MongooseModule.forFeature([{ name: 'Movie', schema: MovieSchema }]),
     MongooseModule.forFeature([{ name: 'User', schema: UserSchema }]),
     LoginModule
