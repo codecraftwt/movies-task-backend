@@ -9,7 +9,6 @@ export class MoviesController {
 
   @Post()
   async create(@Res() response, @Body() createMovieDto: CreateMovieDto) {
-    // return this.moviesService.create(createMovieDto);
     try {
       const newMovie = await this.moviesService.create(createMovieDto);
       return response.status(HttpStatus.CREATED).json({
@@ -27,7 +26,6 @@ export class MoviesController {
 
   @Get()
   async findAll(@Res() response) {
-    // return this.moviesService.findAll();
     try {
       const moviesData = await this.moviesService.findAll();
       return response.status(HttpStatus.OK).json({
@@ -40,7 +38,6 @@ export class MoviesController {
 
   @Get(':id')
   async findOne(@Res() response, @Param('id') id: string) {
-    // return this.moviesService.findOne(+id);
     try {
       const existingMovie = await
         this.moviesService.findOne(id);
@@ -54,7 +51,6 @@ export class MoviesController {
 
   @Patch(':id')
   async update(@Res() response, @Param('id') id: string, @Body() updateMovieDto: UpdateMovieDto) {
-    // return this.moviesService.update(+id, updateMovieDto);
     try {
       const existingMovie = await this.moviesService.update(id, updateMovieDto);
       return response.status(HttpStatus.OK).json({
@@ -68,7 +64,6 @@ export class MoviesController {
 
   @Delete(':id')
   async remove(@Res() response, @Param('id') id: string) {
-    // return this.moviesService.remove(+id);
     try {
       const deletedMovie = await this.moviesService.remove(id);
       return response.status(HttpStatus.OK).json({

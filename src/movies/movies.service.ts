@@ -13,7 +13,6 @@ export class MoviesService {
   async create(createMovieDto: CreateMovieDto): Promise<IMovie> {
     const newMovie = await new this.movieModel(createMovieDto);
     return newMovie.save();
-    // return 'This action adds a new movie';
   }
 
   async findAll(): Promise<IMovie[]> {
@@ -22,7 +21,6 @@ export class MoviesService {
       throw new NotFoundException('Movies data not found!');
     }
     return movieData;
-    // return `This action returns all movies`;
   }
 
   async findOne(id: string): Promise<IMovie> {
@@ -31,7 +29,6 @@ export class MoviesService {
       throw new NotFoundException(`Movie #${id} not found`);
     }
     return existingMovie;
-    // return `This action returns a #${id} movie`;
   }
 
   async update(id: string, updateMovieDto: UpdateMovieDto): Promise<IMovie> {
@@ -40,7 +37,6 @@ export class MoviesService {
       throw new NotFoundException(`Movie #${id} not found`);
     }
     return existingMovie;
-    // return `This action updates a #${id} movie`;
   }
 
   async remove(id: string): Promise<IMovie> {
@@ -49,6 +45,5 @@ export class MoviesService {
       throw new NotFoundException(`Movie #${id} not found`);
     }
     return deletedMovie;
-    // return `This action removes a #${id} movie`;
   }
 }

@@ -6,12 +6,16 @@ import { MongooseModule } from '@nestjs/mongoose';
 import { MovieSchema } from './movies/schema/movie.schema';
 import { MoviesController } from './movies/movies.controller';
 import { MoviesService } from './movies/movies.service';
+import { LoginModule } from './login/login.module';
+import { UserSchema } from './login/schema/user.schema';
 
 @Module({
   imports: [MoviesModule,
-    // MongooseModule.forRoot('mongodb://0.0.0.0:27017', { dbName: 'moviesdb' }),
-    MongooseModule.forRoot('mongodb+srv://codecraftwtatlas:codecraftwtatlas@new-web.8osw8.mongodb.net/new_backend_web?retryWrites=true&w=majority&appName=new-web', { dbName: 'moviesdb' }),
-    MongooseModule.forFeature([{ name: 'Movie', schema: MovieSchema }])
+    MongooseModule.forRoot('mongodb://0.0.0.0:27017', { dbName: 'moviesdb' }),
+    // MongooseModule.forRoot('mongodb+srv://codecraftwtatlas:codecraftwtatlas@new-web.8osw8.mongodb.net/new_backend_web?retryWrites=true&w=majority&appName=new-web', { dbName: 'moviesdb' }),
+    MongooseModule.forFeature([{ name: 'Movie', schema: MovieSchema }]),
+    MongooseModule.forFeature([{ name: 'User', schema: UserSchema }]),
+    LoginModule
   ],
   controllers: [AppController, MoviesController],
   providers: [AppService, MoviesService],
